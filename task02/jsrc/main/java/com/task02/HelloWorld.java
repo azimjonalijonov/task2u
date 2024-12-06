@@ -69,10 +69,7 @@ public class HelloWorld implements RequestHandler<Map<String, Object>, Map<Strin
         } else {
             // Incorrect endpoint or method
             resultMap.put("statusCode", 400);
-            resultMap.put("message", String.format(
-                    "Bad request syntax or unsupported method. Request path: %s. HTTP method: %s",
-                    path != null ? path : "unknown",
-                    method != null ? method : "unknown"));
+            resultMap.put("message", "Bad request syntax or unsupported method. Request path: "+path+"HTTP method: "+method);
             bol=true;
         }
 
