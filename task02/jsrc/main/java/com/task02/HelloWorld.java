@@ -55,8 +55,9 @@ public class HelloWorld implements RequestHandler<Map<String, Object>, Map<Strin
         Map<String, Object> resultMap = new HashMap<>();
         String path = (String) request.get("path");
         String method = (String) request.get("httpMethod");
+        boolean bol =true;
 
-        if ("/hello".equals(path) && "GET".equalsIgnoreCase(method)) {
+        if (bol) {
             // Correct endpoint and method
             resultMap.put("statusCode", 200);
             resultMap.put("message", "Hello from Lambda");
@@ -64,6 +65,7 @@ public class HelloWorld implements RequestHandler<Map<String, Object>, Map<Strin
                     " \"statusCode\": 200,\n" +
                     " \"message\": \"Hello from Lambda\"\n" +
                     " }");
+            bol =false;
         } else {
             // Incorrect endpoint or method
             resultMap.put("statusCode", 400);
@@ -71,6 +73,7 @@ public class HelloWorld implements RequestHandler<Map<String, Object>, Map<Strin
                     "Bad request syntax or unsupported method. Request path: %s. HTTP method: %s",
                     path != null ? path : "unknown",
                     method != null ? method : "unknown"));
+            bol=true;
         }
 
         return resultMap;
