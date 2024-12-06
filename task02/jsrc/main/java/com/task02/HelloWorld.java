@@ -47,7 +47,7 @@ import java.util.Map;
 )
 @LambdaUrlConfig
 public class HelloWorld implements RequestHandler<Map<String, Object>, Map<String, Object>> {
-
+    public static boolean bol =true;
     @Override
     public Map<String, Object> handleRequest(Map<String, Object> request, Context context) {
         System.out.println("Processing request in Lambda function");
@@ -55,7 +55,7 @@ public class HelloWorld implements RequestHandler<Map<String, Object>, Map<Strin
         Map<String, Object> resultMap = new HashMap<>();
         String path = (String) request.get("path");
         String method = (String) request.get("httpMethod");
-        boolean bol =true;
+
 
         if (bol) {
             // Correct endpoint and method
